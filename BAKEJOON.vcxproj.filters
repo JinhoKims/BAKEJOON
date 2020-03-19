@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="피타고라스의 정리.cpp">
+    <ClCompile Include="사분면.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
