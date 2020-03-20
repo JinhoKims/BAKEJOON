@@ -12,6 +12,4 @@ int func(int num) {
 		return 1;
 	else
 		return num * func(num - 1);
-
-
 }
