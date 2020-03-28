@@ -7,10 +7,14 @@ void hanoi(int x, int y, int count) {
     hanoi(6 - x - y, y, count - 1);
 }
 int main() {
+    printf("%d", sizeof(long));
+    
     scanf_s("%d", &n);
     printf("%d\n", (1 << n) - 1);
     hanoi(1, 3, n);
     return 0;
+
+
 }
 
 
