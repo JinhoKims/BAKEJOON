@@ -102,15 +102,25 @@ int main() {
 	int*& ref2 = ptr2;
 	int**& dref2 = dptr2;
 
-//	*dptr2 = ptr; // ptr2 는 ptr의값(&num)을 가리킴, **dptr로 접근 가능
-//	*dptr2 = &num;
+/*
+	*dptr2 = ptr; // ptr2 는 ptr의값(&num)을 가리킴, **dptr로 접근 가능
+	*dptr2 = &num; // 같은 의미
 
 	dptr2 = &ptr;
 	// 이제 dptr2 != ptr2이 됨(관계가 분리됨)
 	*dptr2 = ptr; // ↑같은 의미 // ptr = ptr ※ 서순 주의! 이미 *dptr2은 ptr로 변경되어, ptr2(좌측값)를 제어할 수 없다!
 	*ptr2 = 779;
-	
-	cout << num << endl;
+*/	
 
+	// 밑에 두 줄을 바꿔가면서 포인터개념을 습득하자. (주소와 데이터를 혼동 주의)
+	// 참조자도 포인터와 똑같다.(분신)
+	
+	dptr2 = dptr; // 핵심! <이전 dptr>의 내용(&ptr)가 dptr에 들어감, 후에 dptr값이 바뀌더라도 dptr2의 내용은 바뀌지 않음!!! (그 라인에 내용만 들어가기에)
+	
+	dptr = &ptr2; // 이미, dptr2는 &ptr을 가르킴.
+				
+	**dptr2 = 1000;
+
+	cout << num2 << endl;	
 
 }
