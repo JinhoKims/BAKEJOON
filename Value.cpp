@@ -55,7 +55,7 @@ public:
 
 };
 
-
+void fua(int*&);
 int main() {
 	
 	Point q(22);
@@ -111,16 +111,40 @@ int main() {
 	*dptr2 = ptr; // ↑같은 의미 // ptr = ptr ※ 서순 주의! 이미 *dptr2은 ptr로 변경되어, ptr2(좌측값)를 제어할 수 없다!
 	*ptr2 = 779;
 */	
+// 정리 : 포인터의 <하위계층>은 변경 시 <상위계층>도 영향받지만, 포인터와 동등한 차원이상의 다른 포인터가 변환 시는 아무영향 없다!
+	/* 밑에 두 줄을 바꿔가면서 포인터개념을 습득하자. (주소와 데이터를 혼동 주의)
+	참조자도 포인터와 똑같다.(분신) */
 
-	// 밑에 두 줄을 바꿔가면서 포인터개념을 습득하자. (주소와 데이터를 혼동 주의)
-	// 참조자도 포인터와 똑같다.(분신)
 	
-	dptr2 = dptr; // 핵심! <이전 dptr>의 내용(&ptr)가 dptr에 들어감, 후에 dptr값이 바뀌더라도 dptr2의 내용은 바뀌지 않음!!! (그 라인에 내용만 들어가기에)
-	
-	dptr = &ptr2; // 이미, dptr2는 &ptr을 가르킴.
-				
-	**dptr2 = 1000;
+/*	dptr2 = dptr;  dptr의 값(= &ptr)만 복사. ※ dptr을 참조하는게 아니다!(주의)
+	*dptr2 = ptr;  핵심! <이전 dptr>의 내용(&ptr)가 dptr에 들어감, 후에 dptr값이 바뀌더라도 dptr2의 내용은 바뀌지 않음!!! (그 라인에 내용만 들어가기에) */
 
-	cout << num2 << endl;	
 
+	*dptr = ptr2; // ptr = ptr2
+	fua(*dptr); // ptr1
+	cout << *ptr << endl;
+
+	dptr = &ptr2; // *dptr 주소 자체를 ptr2로 바꿈
+	fua(*dptr); // &ptr <- &ptr2
+	cout << *ptr2 << endl;
+
+	ptr = &num;
+	ptr2 = &num2;
+
+	dptr = dptr2; // ptr2 = ptr2
+	*dptr2 = ptr; // ptr2 = ptr 
+	**dptr2 = 777;
+	cout << num << endl;
+
+	/* dptr = &ptr , *dptr = &num, **dptr = num */
+
+	*dptr = *dptr2; // ptr2 = ptr
+	ptr = ptr2; // ptr2 = ptr
+	**dptr = 999; // num = 999
+	cout << num << endl;
+
+}
+
+void fua(int*& ref) {
+	ref = new int(70);
 }
