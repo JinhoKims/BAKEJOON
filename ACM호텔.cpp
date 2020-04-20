@@ -18,7 +18,7 @@
                 cout << h << 0 << w << endl;
             else
                 cout << h << w << endl;
-                
+                cout << endl << endl;
 
         }
         return 0;
