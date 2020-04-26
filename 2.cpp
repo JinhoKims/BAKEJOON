@@ -33,21 +33,21 @@ class NPC
 public:
 	int NPCCode;
 	string Name;
-	NPC() { cout << "±âº» »ý¼ºÀÚ" << endl; }
-	NPC(int _NpcCode, string _Name) { cout << "ÀÎÀÚ »ý¼ºÀÚ" << endl; }
-	NPC(NPC& other) { cout << "º¹»ç »ý¼ºÀÚ" << endl; }
-	NPC& operator = (const NPC& npc) { cout << "´ëÀÔ" << endl; ; return *this; }
+	NPC() { cout << "ê¸°ë³¸ ìƒì„±ìž" << endl; }
+	NPC(int _NpcCode, string _Name) { cout << "ì¸ìž ìƒì„±ìž" << endl; }
+	NPC(NPC& other) { cout << "ë³µì‚¬ ìƒì„±ìž" << endl; }
+	NPC& operator = (const NPC& npc) { cout << "ëŒ€ìž…" << endl; ; return *this; }
 
-	NPC(NPC&& other) { cout << "Move »ý¼ºÀÚ" << endl; }
+	NPC(NPC&& other) { cout << "Move ìƒì„±ìž" << endl; }
 	NPC& operator = (const NPC&& npc)
 	{
-		cout << "Move ´ëÀÔ" << endl;
+		cout << "Move ëŒ€ìž…" << endl;
 		return *this;
 	}
 	template<typename T>
 	NPC& operator = (const NPC&& npc)
-	{
-		cout << "Move ´ëÀÔ" << endl;
+	{ 
+		cout << "Move ëŒ€ìž…" << endl;
 		return *this;
 	}
 
