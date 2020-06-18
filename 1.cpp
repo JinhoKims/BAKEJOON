@@ -2,6 +2,7 @@
 using namespace std;
 int main() {
 	int a, b, c;
+	int roaks;
 	cin >> a >> b >> c;
 
 	
